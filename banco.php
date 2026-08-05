@@ -30,21 +30,34 @@ while($opcao != 4){
 
     // Tratar as opções escolhidas...
     switch($opcao){
-        case 1:
+        case 1: //Mostrar saldo. OK...
             echo "\n-> Saldo disponível R$ " . $saldo . "\n\n";
             break;
-        case 2:
+        case 2: // Fazer saque. OK...
             echo "\n-> Qual valor do saque: ";
             $saque = fgets(STDIN);
             if($saque <= $saldo){
-                echo "\nSeu saque foi no valor de R$ $saque";
-                echo "->Saque efetuado com sucesso!\n";
+                echo "\n Seu saque foi no valor de R$ $saque";
+                echo "-> Saque efetuado com sucesso!\n";
                 $saldo -= $saque;
             }else{
                 echo "\n-> Saldo indisponível.\n";
             }
             echo "\n\n";
             break;
+        case 3: // Fazer deposito. OK...
+            echo "\n-> Informe o valor do deposito: ";
+            $deposito = fgets(STDIN);
+            $saldo += $deposito;
+            echo "\n Seu deposito foi no valor de R$ $deposito";
+            echo "-> Deposito realizado com sucesso!\n\n";
+            break;
+        case 4: // Sair do sistema.
+            echo "\n Saindo do sistema.";
+            echo "\n-> Ate logo: " . $nome ;
+            break;
+        default:
+            echo "\n-> Opção inválida!\n-> Favor, digite uma opção válida.\n\n";
     }
 
 }
